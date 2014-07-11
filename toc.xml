@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Addon Author="indogotock" APIVersion="8" Name="WildSweeper" Description="">
+	<Script Name="WildSweeper.lua"/>
+</Addon>
