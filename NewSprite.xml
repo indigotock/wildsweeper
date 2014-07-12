@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Sprites>
+    <Sprite Name="Splosion" Cycle="1">
+        <Frame Texture="WildSweeper\sposion\1.png" x0="0" x1="0" x2="64" x3="64" x4="64" x5="64" y0="0" y1="0" y2="64" y3="64" y4="64" y5="64" Stretchy="1" HotspotX="0" HotspotY="0" Duration="0.1" StartColor="ffffffff" EndColor="ffffffff" />
+        <Frame Texture="WildSweeper\sposion\2.png" x0="0" x1="0" x2="64" x3="64" x4="64" x5="64" y0="0" y1="0" y2="64" y3="64" y4="64" y5="64" Stretchy="1" HotspotX="0" HotspotY="0" Duration="0.1" StartColor="ffffffff" EndColor="ffffffff" />
+        <Frame Texture="WildSweeper\sposion\3.png" x0="0" x1="0" x2="64" x3="64" x4="64" x5="64" y0="0" y1="0" y2="64" y3="64" y4="64" y5="64" Stretchy="1" HotspotX="0" HotspotY="0" Duration="0.1" StartColor="ffffffff" EndColor="ffffffff" />
+        <Frame Texture="WildSweeper\sposion\4.png" x0="0" x1="0" x2="64" x3="64" x4="64" x5="64" y0="0" y1="0" y2="64" y3="64" y4="64" y5="64" Stretchy="1" HotspotX="0" HotspotY="0" Duration="0.1" StartColor="ffffffff" EndColor="ffffffff" />
+    </Sprite>
+</Sprites>

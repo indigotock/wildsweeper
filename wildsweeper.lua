@@ -265,5 +265,13 @@ function wildsweeper:close_game()
 	self:new_board()
 end
 
+---------------------------------------------------------------------------------------------------
+-- game_tile Functions
+---------------------------------------------------------------------------------------------------
+
+function wildsweeper:event_flash_stop( wndHandler, wndControl, strAnimDataId )
+	wndControl:Show(false,false)
+end
+
 local wildsweeperInst = wildsweeper:new()
 wildsweeperInst:Init()

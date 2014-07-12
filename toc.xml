@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Addon Author="indogotock" APIVersion="8" Name="WildSweeper" Description="">
-	<Script Name="btools/gui/drop_button.lua"/>
-	<Form Name="forms.xml"/>
-	<Script Name="WildSweeper.lua"/>
+    <Script Name="btools/gui/drop_button.lua"/>
+    <Form Name="forms.xml"/>
+    <Script Name="WildSweeper.lua"/>
 </Addon>
