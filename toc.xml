@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Addon Author="indogotock" APIVersion="8" Name="WildSweeper" Description="">
+<Addon Author="indogotock" APIVersion="8" Name="WildSweeper" Description="Bored of waiting for your queue to pop? Want the epic excitement of minesweeper in Wildstar? Download WildSweeper today!" Version="1.0.0">
     <Script Name="btools/gui/drop_button.lua"/>
     <Form Name="forms.xml"/>
     <Script Name="WildSweeper.lua"/>
