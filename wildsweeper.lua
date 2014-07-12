@@ -71,7 +71,7 @@ function wildsweeper:form_load()
 			return
 		end
 
-		self.wndMain:Show(true, true)
+		self.wndMain:Show(false, true)
 		self.wndMain:FindChild('scores'):ArrangeChildrenVert()
 		local db = Apollo.GetPackage('indigotock.btools.gui.drop_button').tPackage
 		local newbtn = db(self.wndMain:FindChild('new_button'),{sText='New Game',nWindowHeight=190, nWindowWidth=200})
