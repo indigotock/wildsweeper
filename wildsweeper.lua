@@ -11,7 +11,7 @@ tDifficulties[1] = { text='Wimpy', colour = ApolloColor.new('ItemQuality_Average
 tDifficulties[2] = { text='Easy', colour = ApolloColor.new('ItemQuality_Good'), size = 10, bombs = 20 }
 tDifficulties[3] = { text='Normal', colour = ApolloColor.new('ItemQuality_Excellent'), size = 16, bombs = 50 }
 tDifficulties[4] = { text='Hard', colour = ApolloColor.new('ItemQuality_Superb'), size = 20, bombs = 100 }
-tDifficulties[5] = { text='Extreme!', colour = ApolloColor.new('ItemQuality_Legendary'), size = 25, bombs = 150 }
+tDifficulties[5] = { text='EXTREME!', colour = ApolloColor.new('ItemQuality_Legendary'), size = 25, bombs = 150 }
 
 local aNumColours = {}
 aNumColours[1] = 'ItemQuality_Inferior'
@@ -24,6 +24,7 @@ aNumColours[7] = 'ItemQuality_Legendary'
 aNumColours[8] = 'ItemQuality_Artifact'
 
 local tSprites = {}
+
 
 tSprites.bomb = {'IconSprites:Icon_Windows_UI_CRB_Marker_Bomb', ApolloColor.new('white')}
 tSprites.check = {'IconSprites:Icon_MapNode_Map_Checkmark', ApolloColor.new('white')}
@@ -100,9 +101,12 @@ function wildsweeper:event_new_game()
 end
 
 function wildsweeper:new_board(diff)
+	self.bWon = nil
+	self.wndMain:FindChild('win_frame'):Show(false,false)
+	self.wndMain:FindChild('lose_frame'):Show(false,false)
+	self.diff = diff
 	diff = diff or tDifficulties[1]
 	self.oTimer = nil
-	self.wndMain:FindChild('win_label'):Show(false,false)
 	self.tTiles = {}
 	self.bClickedOnce = false
 	self.tScore = {time = 0, clicks = 0, flags = 0}
@@ -215,8 +219,8 @@ function wildsweeper:has_won()
 end
 
 function wildsweeper:win_game()
-	self.wndMain:FindChild('win_label'):Show(true,false)
-	self.wndMain:FindChild('win_label'):SetText('WINNER IS YOU!')
+	self.bWon=true
+	self.wndMain:FindChild('win_frame'):Show(true,false)
 	self.oTimer:Stop()
 	for _,v in pairs(self.tTiles) do
 		for _,tile in pairs(v) do
@@ -238,8 +242,8 @@ function wildsweeper:win_game()
 end
 
 function wildsweeper:lose_game()
-	self.wndMain:FindChild('win_label'):Show(true,false)
-	self.wndMain:FindChild('win_label'):SetText('YOU LOSE!')
+	self.bWon = false
+	self.wndMain:FindChild('lose_frame'):Show(true,false)
 	self.oTimer:Stop()
 	for _,v in pairs(self.tTiles) do
 		for _,tile in pairs(v) do
@@ -257,6 +261,16 @@ function wildsweeper:lose_game()
 				tile:FindChild('tile_icon'):SetBGColor(tSprites.cross[2])
 			end
 		end
+	end
+end
+
+function wildsweeper:event_share_score(h,c,m)
+	if self.bWon then
+		local msg = ' I found all %d bombs in %s mode WildSweeper in %d seconds; how awesome am I!'
+		ChatSystemLib.Command(c:GetText()..string.format(msg,tonumber(self.wndMain:FindChild('bomb_count'):GetText()),self.diff.text,self.tScore.time))
+	else
+	local msg = ' Oops! I just lost a game of %s mode WildSweeper in %d seconds. Didn\'t quite mean for that to happen'
+		ChatSystemLib.Command(c:GetText()..string.format(msg,self.diff.text,self.tScore.time))
 	end
 end
 
