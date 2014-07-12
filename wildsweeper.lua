@@ -102,8 +102,8 @@ end
 
 function wildsweeper:new_board(diff)
 	self.bWon = nil
-	self.wndMain:FindChild('win_frame'):Show(false,false)
-	self.wndMain:FindChild('lose_frame'):Show(false,false)
+	self.wndMain:FindChild('win_frame'):Show(false,true)
+	self.wndMain:FindChild('lose_frame'):Show(false,true)
 	self.diff = diff
 	diff = diff or tDifficulties[1]
 	self.oTimer = nil
